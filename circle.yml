@@ -1,11 +1,10 @@
-dependencies:
-  override:
-    - exit 0
+general:
+   artifacts:
+     - $CIRCLE_TEST_REPORTS
 
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-  override:
-    - exit 0
+  
   
